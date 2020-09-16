@@ -1,0 +1,46 @@
+.movieCatalog {
+    background: #243051;
+}
+
+.catalogBanner {
+    position: relative;
+    width: 100%;
+    height: 340px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.catalogBackground {
+    background: url("../../img/01_cinema.jpeg") center center/cover no-repeat;
+    mask-image: linear-gradient(to bottom, rgba(89, 94, 119, 1), rgba(89, 94, 119, 0));
+    width: 100%;
+    height: 340px;
+}
+
+.catalogBannerTitle {
+    position: absolute;
+    background: none;
+}
+
+.catalogTitle {
+    font-size: 46px;
+    font-family: 'Roboto', sans-serif;
+    font-weight: 900;
+    color: #fd00ff;
+    background: none;
+}
+
+.catalogSubtitle {
+    background: none;
+    font-family: 'Roboto', sans-serif;
+    font-weight: 400;
+    font-size: 24px;
+    color: #f0ff00;
+}
+
+
+.catalogRow {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+}
