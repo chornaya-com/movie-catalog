@@ -11,24 +11,57 @@
 }
 
 .movieInfo > strong {
-    font-size: 24px;
+    font-size: 22px;
     margin-top: 10px;
     color: white;
 }
 
 .movieInfo > p {
-    font-size: 18px;
+    font-size: 16px;
     margin-top: 10px;
     color: #fd00ff;
 }
 
 .movieDescription {
     margin-top: 10px;
-    font-size: 16px;
+    font-size: 14px;
     color: white;
 }
 
 img {
     width: 160px;
     border: 1px solid #f0ff00;
+}
+
+@media (max-width: 900px) {
+    .movie {
+        margin: 10px;
+    }
+
+    .movieInfo {
+        margin: 0 10px;
+    }
+
+    .movieInfo > strong {
+        font-size: 16px;
+    }
+
+    .movieDescription, .movieInfo > p {
+        font-size: 12px;
+        margin-top: 5px;
+    }
+
+    img {
+        width: 90px;
+    }
+}
+
+@media (max-width: 500px) {
+    .movieDescription, .movieInfo > p {
+        font-size: 10px;
+    }
+
+    img {
+        width: 70px;
+    }
 }
