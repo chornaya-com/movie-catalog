@@ -22,6 +22,11 @@
     margin-left: 10px;
 }
 
+.headerText > span {
+    color: #fd00ff;
+    font-weight: 900;
+}
+
 .headerIcon, .searchIcon {
     cursor: pointer;
     color: #61dafb;

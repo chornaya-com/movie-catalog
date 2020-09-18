@@ -25,6 +25,7 @@
 .catalogBannerTitle {
     position: absolute;
     background: none;
+    cursor: default;
 }
 
 .catalogTitle {

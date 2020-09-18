@@ -1,8 +1,9 @@
 import React from "react";
 import * as cn from "./Header.module.css";
+import {MovieContext} from "../../state/MovieContext";
 
 export function Header() {
-
+    const movies = React.useContext(MovieContext);
     return (
         <div className={cn.header}>
             <div className={cn.user}>
@@ -14,7 +15,7 @@ export function Header() {
                     <i className="fas fa-film"></i>
                 </div>
                 <div className={cn.headerText}>
-                    Your Movie List
+                    Movies On Your List: <span>{movies.length}</span>
                 </div>
             </div>
 

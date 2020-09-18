@@ -56,6 +56,21 @@ img {
     }
 }
 
+@media (max-width: 700px) {
+    .movieInfo > strong {
+        font-size: 18px;
+    }
+
+    .movieDescription, .movieInfo > p {
+        font-size: 14px;
+        margin-top: 5px;
+    }
+
+    img {
+        width: 100px;
+    }
+}
+
 @media (max-width: 500px) {
     .movieDescription, .movieInfo > p {
         font-size: 10px;
