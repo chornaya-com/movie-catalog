@@ -1,10 +1,13 @@
 import React from "react";
 import * as cn from "./MovieCatalog.module.css";
 import {Movie} from "../movie/Movie";
-import {MovieContext} from "../../state/MovieContext";
 
-export function MovieCatalog() {
-    const movies = React.useContext(MovieContext);
+export function MovieCatalog(props) {
+    const {onInit, movies} = props;
+
+    React.useEffect(() => {
+        onInit()
+    }, [onInit])
 
     const moviesJsx = movies.map(movie => (
         <Movie {...movie} key={movie.id}/>

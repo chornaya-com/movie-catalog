@@ -1,20 +1,21 @@
 import React from 'react';
 import './App.css';
-import {MovieCatalog} from "./components/movieCatalog/MovieCatalog";
-import {Header} from "./components/header/Header";
 import {Footer} from "./components/footer/Footer";
-import {MovieContext} from "./state/MovieContext";
-import {initialState} from "./state/state";
+import {Provider} from "react-redux";
+import {store} from "./redux/store";
+import {MovieCatalogConnected} from "./components/movieCatalog/MovieCatalog.connected";
+import {HeaderConnected} from "./components/header/Header.connected";
+
 
 function App() {
     return (
-        <MovieContext.Provider value={initialState}>
-            <div className="App">
-                <Header/>
-                <MovieCatalog/>
-                <Footer/>
-            </div>
-        </MovieContext.Provider>
+        <Provider store={store}>
+                <div className="App">
+                    <HeaderConnected/>
+                    <MovieCatalogConnected/>
+                    <Footer/>
+                </div>
+        </Provider>
     );
 }
 
