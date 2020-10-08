@@ -1,12 +1,15 @@
 import axios from 'axios';
 import {setMovies} from "./actions";
+import responseJSON from "./moviesApiResponse.json";
 
 export function fetchMovies() {
     return async (dispatch) => {
-        const url = "https://api.themoviedb.org/3/discover/movie?api_key=e29a479c4bed9f110595f8fc2ecbe58a";
-        const response = await axios.get(url);
+        // const url = "https://api.themoviedb.org/3/discover/movie?api_key=e29a479c4bed9f110595f8fc2ecbe58a";
+        // const response = await axios.get(url);
 
-        dispatch(setMovies(response.data.results));
+
+        // dispatch(setMovies(response.data.results));
+        dispatch(setMovies(responseJSON.results));
     };
 }
 

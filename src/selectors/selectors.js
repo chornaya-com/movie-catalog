@@ -12,6 +12,7 @@ export function selectMoviesForMovieCatalog(state) {
 }
 
 export function selectNumberOfFavMovies(state) {
-    return selectMoviesForMovieCatalog(state).length
+    return state.favourites.favourites.length;
 }
+
 

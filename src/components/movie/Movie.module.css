@@ -33,6 +33,17 @@ img {
     border: 1px solid #f0ff00;
 }
 
+.addToFavButton {
+    height: 30px;
+    padding: 5px;
+    border: none;
+    border-radius: 4px;
+    color: #ffffff;
+    background: #243051;
+    margin-top: 20px;
+    cursor: pointer;
+}
+
 @media (max-width: 900px) {
     .movie {
         margin: 10px;
