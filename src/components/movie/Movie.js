@@ -2,11 +2,15 @@ import React from "react";
 import * as cn from "./Movie.module.css";
 
 export function Movie(props) {
-    const {id, name, description, image, rating, maxRating, onAddToFavourites} = props;
+    const {id, name, description, image, rating, maxRating, onAddToFavourites, isFavourite, onRemoveFromFavourites} = props;
     const movie = {id, name, description, image, rating, maxRating};
 
-    function onClick() {
+    function onAdd() {
         onAddToFavourites(movie);
+    }
+
+    function onRemove() {
+        onRemoveFromFavourites(id)
     }
 
     return (
@@ -16,7 +20,12 @@ export function Movie(props) {
                 <strong>{name}</strong>
                 <p><i className="fas fa-star"/> <strong>{rating}</strong>/{maxRating}</p>
                 <div className={cn.movieDescription}>{description}</div>
-                <button className={cn.addToFavButton} onClick={onClick}>Add to favourite</button>
+                {!isFavourite && (
+                    <button className={cn.addToFavButton} onClick={onAdd}>Add to favourite</button>
+                )}
+                {isFavourite && (
+                    <button className={cn.addToFavButton} onClick={onRemove}>Remove from favourites</button>
+                )}
             </div>
         </div>
     )

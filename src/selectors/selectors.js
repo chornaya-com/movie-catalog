@@ -11,8 +11,15 @@ export function selectMoviesForMovieCatalog(state) {
     });
 }
 
+export function selectFavourites(state) {
+    return state.favourites.favourites;
+}
+
 export function selectNumberOfFavMovies(state) {
     return state.favourites.favourites.length;
 }
 
+export function selectIsFavouriteMovie(state, id) {
+    return state.favourites.favourites.some(movie => movie.id === id);
+}
 

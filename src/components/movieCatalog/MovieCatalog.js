@@ -6,7 +6,9 @@ export function MovieCatalog(props) {
     const {onInit, movies} = props;
 
     React.useEffect(() => {
-        onInit()
+        if(onInit) {
+            onInit();
+        }
     }, [onInit])
 
     const moviesJsx = movies.map(movie => (
