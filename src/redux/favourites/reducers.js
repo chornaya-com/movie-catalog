@@ -1,6 +1,6 @@
 import {ADD_TO_FAVOURITES, REMOVE_FROM_FAVOURITES} from "./actions";
 
-const initialFavouritesState = {
+export const initialFavouritesState = {
     favourites: []
 };
 
