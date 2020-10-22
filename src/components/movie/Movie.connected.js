@@ -6,7 +6,6 @@ import {selectIsFavouriteMovie} from "../../selectors/selectors";
 const mapStateToProps = (state, {id}) => {
     return {
         isFavourite: selectIsFavouriteMovie(state, id)
-
     };
 }
 
