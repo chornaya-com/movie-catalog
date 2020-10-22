@@ -1,16 +1,18 @@
 import React from "react";
 import * as cn from "./MovieCatalog.module.css";
-import {Movie} from "../movie/Movie";
+import {MovieConnected} from "../movie/Movie.connected";
 
 export function MovieCatalog(props) {
     const {onInit, movies} = props;
 
     React.useEffect(() => {
-        onInit()
+        if(onInit) {
+            onInit();
+        }
     }, [onInit])
 
     const moviesJsx = movies.map(movie => (
-        <Movie {...movie} key={movie.id}/>
+        <MovieConnected {...movie} key={movie.id}/>
     ));
 
     return (

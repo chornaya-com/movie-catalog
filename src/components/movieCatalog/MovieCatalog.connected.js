@@ -10,7 +10,7 @@ const mapStateToProps = (state) => {
 }
 
 const dispatchProps = {
-    onInit : fetchMovies
+    onInit: fetchMovies
 }
 
 export const MovieCatalogConnected = connect(mapStateToProps, dispatchProps)(MovieCatalog);
