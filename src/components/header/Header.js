@@ -1,12 +1,12 @@
 import React from 'react';
 import * as cn from './Header.module.css';
-import {Link, useLocation} from 'react-router-dom';
+import {Link, /*useLocation*/} from 'react-router-dom';
 
 export function Header(props) {
     const {numberOfFavMovies, searchMovies} = props;
     const [searchText, setSearchText] = React.useState('');
-    const location = useLocation();
-    const isFavouritePage = location.pathname === '/favourites';
+    // const location = useLocation();
+    // const isFavouritePage = location.pathname === '/favourites';
 
     function onClickSearchMovies(event) {
         event.preventDefault();
@@ -43,13 +43,8 @@ export function Header(props) {
 
     return (
         <div className={cn.header}>
-            <div className={cn.user}>
-                <div className={cn.headerIcon}>
-                    <i className="fas fa-user" />
-                </div>
-                <div className={cn.headerText}>User</div>
-            </div>
-            {isFavouritePage ? allMoviesLink : favouriteLink}
+            {allMoviesLink}
+            {favouriteLink}
             <form onSubmit={onClickSearchMovies} className={cn.search}>
                 <input onChange={onChangeSearchMovies} className={cn.searchInput} type="text" />
                 <div onClick={onClickSearchMovies} className={cn.searchIcon}>

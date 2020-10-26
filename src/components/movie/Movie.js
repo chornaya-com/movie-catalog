@@ -26,11 +26,15 @@ export function Movie(props) {
         maxRating,
     };
 
-    function onAdd() {
+    function onAdd(event) {
+        event.preventDefault();
+        event.stopPropagation();
         onAddToFavourites(movie);
     }
 
-    function onRemove() {
+    function onRemove(event) {
+        event.preventDefault();
+        event.stopPropagation();
         onRemoveFromFavourites(id);
     }
 

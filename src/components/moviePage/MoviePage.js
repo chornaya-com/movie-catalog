@@ -16,6 +16,7 @@ export function MoviePage() {
         if (item.site === 'YouTube') {
             return (
                 <iframe
+                    key={item.id}
                     width="100%"
                     height="100%"
                     src={`https://www.youtube.com/embed/${item.key}`}
@@ -31,7 +32,7 @@ export function MoviePage() {
     return (
         <div className={cn.moviePage}>
             <div className={cn.movie}>
-                <img className={cn.imageMoviePage} src={posterPath} alt=""/>
+                <img className={cn.imageMoviePage} src={posterPath} alt="" />
 
                 <div className={cn.movieInfo}>
                     <div className={cn.movieTitle}>
