@@ -40,7 +40,7 @@ export function Movie(props) {
 
     return (
         <div className={cn.movie}>
-            <img src={image} alt="" />
+            <img className={cn.imageMovieList} src={image} alt="" />
             <div className={cn.movieInfo}>
                 <strong>{name}</strong>
                 <p>
