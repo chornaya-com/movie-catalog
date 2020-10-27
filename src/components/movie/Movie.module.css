@@ -1,3 +1,6 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;900&display=swap');
+@import url('https://use.fontawesome.com/releases/v5.14.0/css/all.css');
+
 .movie {
     display: flex;
     margin: 20px;
@@ -21,7 +24,10 @@
     margin-top: 5px;
     color: #f0ff00;
 }
-
+.link {
+    text-decoration: none;
+    color: #ffffff;
+}
 .movieDescription {
     margin-top: 5px;
     font-size: 14px;

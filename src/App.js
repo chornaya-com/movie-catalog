@@ -9,7 +9,7 @@ import {HeaderConnected} from './components/header/Header.connected';
 import {FavouritesMovieCatalogConnected} from './components/movieCatalog/FavouritesMovieCatalog.connected';
 import {MoviePage} from './components/moviePage/MoviePage';
 
-function App() {
+export function App() {
     return (
         <Provider store={store}>
             <Router>
@@ -32,5 +32,3 @@ function App() {
         </Provider>
     );
 }
-
-export default App;

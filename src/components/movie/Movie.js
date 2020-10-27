@@ -1,6 +1,7 @@
 import React from 'react';
 import * as cn from './Movie.module.css';
 import {shortenDescriptionText} from '../../utils/shortenDescriptionText';
+import {Link} from 'react-router-dom';
 
 export function Movie(props) {
     const {
@@ -44,9 +45,13 @@ export function Movie(props) {
 
     return (
         <div className={cn.movie}>
-            <img className={cn.imageMovieList} src={image} alt="" />
+            <Link to={`/movie/${movie.id}`} key={movie.id} className={cn.link}>
+                <img className={cn.imageMovieList} src={image} alt="" />
+            </Link>
             <div className={cn.movieInfo}>
-                <strong>{name}</strong>
+                <Link to={`/movie/${movie.id}`} key={movie.id} className={cn.link}>
+                    <strong>{name}</strong>
+                </Link>
                 <p>
                     <i className="fas fa-star" /> <strong>{rating}</strong>/{maxRating}
                 </p>

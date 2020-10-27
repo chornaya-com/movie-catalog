@@ -1,7 +1,6 @@
 import React from 'react';
 import * as cn from './MovieCatalog.module.css';
 import {MovieConnected} from '../movie/Movie.connected';
-import {Link} from 'react-router-dom';
 
 export function MovieCatalog(props) {
     const {onInit, movies} = props;
@@ -12,11 +11,7 @@ export function MovieCatalog(props) {
         }
     }, [onInit]);
 
-    const moviesJsx = movies.map((movie) => (
-        <Link to={`/movie/${movie.id}`} key={movie.id} className={cn.link}>
-            <MovieConnected {...movie} />
-        </Link>
-    ));
+    const moviesJsx = movies.map((movie) => <MovieConnected {...movie} />);
 
     return (
         <div className={cn.movieCatalog}>
