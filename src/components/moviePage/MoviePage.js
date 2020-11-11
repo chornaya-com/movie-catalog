@@ -31,6 +31,7 @@ export function MoviePage(props) {
         if (item.site === 'YouTube') {
             return (
                 <iframe
+                    title={item.id}
                     key={item.id}
                     width="100%"
                     height="100%"
