@@ -1,5 +1,6 @@
 import React from 'react';
 import * as cn from '../moviePage/MoviePage.module.css';
+import {useParams} from 'react-router-dom';
 
 export function joinNames(array) {
     return array.map((item) => item.name).join(', ');
@@ -16,9 +17,17 @@ export function MoviePage(props) {
         overview,
         releaseDate,
         videos,
+        fetchMovie,
     } = props;
 
-    const videosJSX = videos.results.map((item) => {
+    const {id} = useParams();
+
+    React.useEffect(() => {
+        fetchMovie(id);
+        window.scrollTo(0, 0);
+    }, [fetchMovie, id]);
+
+    const videosJSX = videos.map((item) => {
         if (item.site === 'YouTube') {
             return (
                 <iframe

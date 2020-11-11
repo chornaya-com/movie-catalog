@@ -7,7 +7,7 @@ import {store} from './redux/store';
 import {MovieCatalogConnected} from './components/movieCatalog/MovieCatalog.connected';
 import {HeaderConnected} from './components/header/Header.connected';
 import {FavouritesMovieCatalogConnected} from './components/movieCatalog/FavouritesMovieCatalog.connected';
-import {MoviePage} from './components/moviePage/MoviePage';
+import {MoviePageConnected} from './components/moviePage/MoviePage.connected';
 
 export function App() {
     return (
@@ -20,7 +20,7 @@ export function App() {
                             <FavouritesMovieCatalogConnected />
                         </Route>
                         <Route path="/movie/:id">
-                            <MoviePage />
+                            <MoviePageConnected />
                         </Route>
                         <Route path="/">
                             <MovieCatalogConnected />

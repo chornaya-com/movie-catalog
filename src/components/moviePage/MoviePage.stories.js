@@ -2,7 +2,9 @@ import React from 'react';
 import movie from './movie.json';
 import videos from './video.json';
 import {joinNames, MoviePage} from './MoviePage';
-import {text} from '@storybook/addon-knobs';
+import {number, text} from '@storybook/addon-knobs';
+import {action} from '@storybook/addon-actions';
+import {BrowserRouter as Router} from 'react-router-dom';
 
 export default {
     title: 'Movie Page',
@@ -15,6 +17,7 @@ export const MoviePageComponent = () => {
     const languages = joinNames(movie.spoken_languages);
 
     const props = {
+        id: number('id', 528085),
         posterPath,
         genres,
         countries,
@@ -23,8 +26,13 @@ export const MoviePageComponent = () => {
         rating: movie.vote_average,
         overview: movie.overview,
         releaseDate: movie.release_date.slice(0, 4),
-        videos,
+        videos: videos.results,
+        fetchMovie: action('fetchMovie'),
     };
 
-    return <MoviePage {...props} />;
+    return (
+        <Router>
+            <MoviePage {...props} />
+        </Router>
+    );
 };
