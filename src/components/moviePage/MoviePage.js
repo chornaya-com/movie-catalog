@@ -1,17 +1,23 @@
 import React from 'react';
-import movie from './movie.json';
-import videos from './video.json';
 import * as cn from '../moviePage/MoviePage.module.css';
 
-function joinNames(array) {
+export function joinNames(array) {
     return array.map((item) => item.name).join(', ');
 }
 
-export function MoviePage() {
-    const posterPath = `https://image.tmdb.org/t/p/w500${movie.poster_path}`;
-    const genres = joinNames(movie.genres);
-    const countries = joinNames(movie.production_countries);
-    const languages = joinNames(movie.spoken_languages);
+export function MoviePage(props) {
+    const {
+        posterPath,
+        genres,
+        countries,
+        languages,
+        title,
+        rating,
+        overview,
+        releaseDate,
+        videos,
+    } = props;
+
     const videosJSX = videos.results.map((item) => {
         if (item.site === 'YouTube') {
             return (
@@ -36,12 +42,12 @@ export function MoviePage() {
 
                 <div className={cn.movieInfo}>
                     <div className={cn.movieTitle}>
-                        <strong>{movie.original_title}</strong>
+                        <strong>{title}</strong>
                     </div>
                     <div className={cn.movieRating}>
-                        <i className="fas fa-star" /> {movie.vote_average}/10
+                        <i className="fas fa-star" /> {rating}/10
                     </div>
-                    <div className={cn.movieOverview}>{movie.overview}</div>
+                    <div className={cn.movieOverview}>{overview}</div>
                     <div className={cn.otherDetails}>
                         <p>
                             <strong>Genres:</strong> {genres}
@@ -50,7 +56,7 @@ export function MoviePage() {
                             <strong>Country:</strong> {countries}
                         </p>
                         <p>
-                            <strong>Year:</strong> {movie.release_date.slice(0, 4)}
+                            <strong>Year:</strong> {releaseDate}
                         </p>
                         <p>
                             <strong>Language:</strong> {languages}

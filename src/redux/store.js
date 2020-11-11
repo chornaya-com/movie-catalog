@@ -1,12 +1,12 @@
 import {createStore, combineReducers, applyMiddleware} from 'redux';
-import thunk from "redux-thunk";
-import {movieListReducer} from "./movieList/reducers";
-import {favouritesReducer} from "./favourites/reducers";
+import thunk from 'redux-thunk';
+import {movieListReducer} from './movieList/reducer';
+import {favouritesReducer} from './favourites/reducers';
 
 const reducers = {
     movieList: movieListReducer,
-    favourites: favouritesReducer
-}
+    favourites: favouritesReducer,
+};
 
 const rootReducer = combineReducers(reducers);
 
