@@ -9,8 +9,9 @@ import {
     selectMovieTitle,
     selectMovieOverview,
     selectMovieReleaseDate,
+    selectFirstYouTubeVideo,
 } from '../../selectors/selectors';
-import {fetchMovieInfo} from '../../redux/movie/thunks';
+import {fetchMovie} from '../../redux/movie/thunks';
 
 const mapStateToProps = (state) => {
     return {
@@ -22,12 +23,12 @@ const mapStateToProps = (state) => {
         rating: selectMovieRating(state),
         overview: selectMovieOverview(state),
         releaseDate: selectMovieReleaseDate(state),
-        videos: [],
+        youtubeVideo: selectFirstYouTubeVideo(state),
     };
 };
 
 const dispatchProps = {
-    fetchMovie: fetchMovieInfo,
+    fetchMovie: fetchMovie,
 };
 
 export const MoviePageConnected = connect(mapStateToProps, dispatchProps)(MoviePage);

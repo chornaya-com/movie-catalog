@@ -16,7 +16,7 @@ export function MoviePage(props) {
         rating,
         overview,
         releaseDate,
-        videos,
+        youtubeVideo,
         fetchMovie,
     } = props;
 
@@ -27,23 +27,17 @@ export function MoviePage(props) {
         window.scrollTo(0, 0);
     }, [fetchMovie, id]);
 
-    const videosJSX = videos.map((item) => {
-        if (item.site === 'YouTube') {
-            return (
-                <iframe
-                    title={item.id}
-                    key={item.id}
-                    width="100%"
-                    height="100%"
-                    src={`https://www.youtube.com/embed/${item.key}`}
-                    frameBorder="0"
-                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                    allowFullScreen
-                />
-            );
-        }
-        return null;
-    });
+    const videosJSX = youtubeVideo ? (
+        <iframe
+            title={youtubeVideo.id}
+            width="100%"
+            height="100%"
+            src={`https://www.youtube.com/embed/${youtubeVideo.key}`}
+            frameBorder="0"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+            allowFullScreen
+        />
+    ) : null;
 
     return (
         <div className={cn.moviePage}>

@@ -45,6 +45,16 @@ export function selectMovieReleaseDate(state) {
     return state.movie.movieInfo?.release_date.slice(0, 4);
 }
 
+export function selectVideos(state) {
+    return state.movie.videos;
+}
+
+export function selectFirstYouTubeVideo(state) {
+    const videos = selectVideos(state);
+    const youTubeVideos = videos.filter((video) => video.site === 'YouTube');
+    return youTubeVideos[0] || null;
+}
+
 export function selectFavourites(state) {
     return state.favourites.favourites;
 }
