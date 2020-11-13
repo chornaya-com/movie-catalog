@@ -1,6 +1,6 @@
 import React from 'react';
 import * as cn from '../moviePage/MoviePage.module.css';
-import {useParams} from 'react-router-dom';
+import {Link, useParams} from 'react-router-dom';
 
 export function joinNames(array) {
     return array.map((item) => item.name).join(', ');
@@ -16,8 +16,9 @@ export function MoviePage(props) {
         rating,
         overview,
         releaseDate,
-        videos,
+        youtubeVideo,
         fetchMovie,
+        recommendations,
     } = props;
 
     const {id} = useParams();
@@ -27,23 +28,17 @@ export function MoviePage(props) {
         window.scrollTo(0, 0);
     }, [fetchMovie, id]);
 
-    const videosJSX = videos.map((item) => {
-        if (item.site === 'YouTube') {
-            return (
-                <iframe
-                    title={item.id}
-                    key={item.id}
-                    width="100%"
-                    height="100%"
-                    src={`https://www.youtube.com/embed/${item.key}`}
-                    frameBorder="0"
-                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                    allowFullScreen
-                />
-            );
-        }
-        return null;
-    });
+    const videosJSX = youtubeVideo ? (
+        <iframe
+            title={youtubeVideo.id}
+            width="100%"
+            height="100%"
+            src={`https://www.youtube.com/embed/${youtubeVideo.key}`}
+            frameBorder="0"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+            allowFullScreen
+        />
+    ) : null;
 
     return (
         <div className={cn.moviePage}>
@@ -75,6 +70,27 @@ export function MoviePage(props) {
                 </div>
             </div>
             <div className={cn.movieTrailer}>{videosJSX}</div>
+            <div className={cn.recommendations}>
+                <div className={cn.recommendationsHeader}>
+                    <strong>Recommendations</strong>
+                </div>
+                <div className={cn.recommendedFilmsBar}>
+                    {recommendations.map((item) => {
+                        return (
+                            <Link to={`/movie/${item.id}`} key={item.id} className={cn.link}>
+                                <div className={cn.recommendedFilm}>
+                                    <img
+                                        className={cn.recommendedFilmPoster}
+                                        src={item.recommendationPoster}
+                                        alt=""
+                                    />
+                                    <p className={cn.recommendedFilmTitle}>{item.title}</p>
+                                </div>
+                            </Link>
+                        );
+                    })}
+                </div>
+            </div>
         </div>
     );
 }

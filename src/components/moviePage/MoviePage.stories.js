@@ -26,8 +26,18 @@ export const MoviePageComponent = () => {
         rating: movie.vote_average,
         overview: movie.overview,
         releaseDate: movie.release_date.slice(0, 4),
-        videos: videos.results,
+        youtubeVideo: videos.results[0],
         fetchMovie: action('fetchMovie'),
+        recommendations: [
+            {
+                title: 'Movie 1',
+                posterPath: 'https://image.tmdb.org/t/p/w500/7D430eqZj8y3oVkLFfsWXGRcpEG.jpg',
+            },
+            {
+                title: 'Movie 2',
+                posterPath: 'https://image.tmdb.org/t/p/w500/7D430eqZj8y3oVkLFfsWXGRcpEG.jpg',
+            },
+        ],
     };
 
     return (
