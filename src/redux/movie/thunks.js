@@ -1,5 +1,5 @@
 import axios from 'axios';
-import {setMovie, setVideos} from './actions';
+import {setMovie, setRecommendations, setVideos} from './actions';
 
 export function fetchMovie(id) {
     return async (dispatch) => {
@@ -10,5 +10,9 @@ export function fetchMovie(id) {
         const videoUrl = `https://api.themoviedb.org/3/movie/${id}/videos?api_key=e29a479c4bed9f110595f8fc2ecbe58a`;
         const videoResponse = await axios.get(videoUrl);
         dispatch(setVideos(videoResponse.data.results || []));
+
+        const recommendationsUrl = `https://api.themoviedb.org/3/movie/${id}/recommendations?api_key=e29a479c4bed9f110595f8fc2ecbe58a`;
+        const recommendationsResponse = await axios.get(recommendationsUrl);
+        dispatch(setRecommendations(recommendationsResponse.data.results) || []);
     };
 }

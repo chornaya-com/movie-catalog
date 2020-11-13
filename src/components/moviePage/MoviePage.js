@@ -80,7 +80,7 @@ export function MoviePage(props) {
                             <div className={cn.recommendedFilm}>
                                 <img
                                     className={cn.recommendedFilmPoster}
-                                    src={item.posterPath}
+                                    src={item.recommendationPoster}
                                     alt=""
                                 />
                                 <p className={cn.recommendedFilmTitle}>{item.title}</p>

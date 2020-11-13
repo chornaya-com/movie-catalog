@@ -55,6 +55,15 @@ export function selectFirstYouTubeVideo(state) {
     return youTubeVideos[0] || null;
 }
 
+export function selectRecommendations(state) {
+    return state.movie.recommendations.map((item) => {
+        return {
+            title: item.title,
+            recommendationPoster: `https://image.tmdb.org/t/p/w500${item.poster_path}`,
+        };
+    });
+}
+
 export function selectFavourites(state) {
     return state.favourites.favourites;
 }

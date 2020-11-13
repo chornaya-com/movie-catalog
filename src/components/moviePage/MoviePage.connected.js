@@ -10,6 +10,7 @@ import {
     selectMovieOverview,
     selectMovieReleaseDate,
     selectFirstYouTubeVideo,
+    selectRecommendations,
 } from '../../selectors/selectors';
 import {fetchMovie} from '../../redux/movie/thunks';
 
@@ -24,7 +25,7 @@ const mapStateToProps = (state) => {
         overview: selectMovieOverview(state),
         releaseDate: selectMovieReleaseDate(state),
         youtubeVideo: selectFirstYouTubeVideo(state),
-        recommendations: [],
+        recommendations: selectRecommendations(state).slice(0, 6),
     };
 };
 
