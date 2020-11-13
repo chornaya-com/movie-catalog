@@ -1,6 +1,6 @@
 import React from 'react';
 import * as cn from '../moviePage/MoviePage.module.css';
-import {useParams} from 'react-router-dom';
+import {Link, useParams} from 'react-router-dom';
 
 export function joinNames(array) {
     return array.map((item) => item.name).join(', ');
@@ -77,14 +77,16 @@ export function MoviePage(props) {
                 <div className={cn.recommendedFilmsBar}>
                     {recommendations.map((item) => {
                         return (
-                            <div className={cn.recommendedFilm}>
-                                <img
-                                    className={cn.recommendedFilmPoster}
-                                    src={item.recommendationPoster}
-                                    alt=""
-                                />
-                                <p className={cn.recommendedFilmTitle}>{item.title}</p>
-                            </div>
+                            <Link to={`/movie/${item.id}`} key={item.id} className={cn.link}>
+                                <div className={cn.recommendedFilm}>
+                                    <img
+                                        className={cn.recommendedFilmPoster}
+                                        src={item.recommendationPoster}
+                                        alt=""
+                                    />
+                                    <p className={cn.recommendedFilmTitle}>{item.title}</p>
+                                </div>
+                            </Link>
                         );
                     })}
                 </div>

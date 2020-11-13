@@ -60,6 +60,7 @@ export function selectRecommendations(state) {
         return {
             title: item.title,
             recommendationPoster: `https://image.tmdb.org/t/p/w500${item.poster_path}`,
+            id: item.id,
         };
     });
 }
