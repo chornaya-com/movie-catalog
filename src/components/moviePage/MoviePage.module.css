@@ -49,12 +49,53 @@
     margin-top: 20px;
     font-size: 18px;
 }
-.otherDetails p{
+
+.otherDetails p {
     margin-top: 5px;
 }
 
 .movieTrailer {
-    width: 800px;
-    height: 450px;
-    margin: 20px 20px 60px 20px;
+    width: 700px;
+    height: 394px;
+    margin: 20px;
+}
+
+.recommendations {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    margin-bottom: 60px;
+    color: #ffffff;
+    font-family: 'Roboto', sans-serif;
+    width: 100%;
+    padding-left: 50px;
+}
+
+.recommendationsHeader {
+    color: white;
+    font-size: 28px;
+    margin-bottom: 20px;
+}
+
+.recommendedFilmsBar {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    overflow-x: scroll;
+}
+
+.recommendedFilm {
+    display: flex;
+    flex-direction: column;
+    margin-right: 30px;
+}
+
+.recommendedFilmPoster {
+    height: 180px;
+    width: 120px;
+}
+
+.recommendedFilmTitle {
+    font-size: 20px;
 }

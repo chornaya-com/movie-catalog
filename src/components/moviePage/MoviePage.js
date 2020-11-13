@@ -18,6 +18,7 @@ export function MoviePage(props) {
         releaseDate,
         youtubeVideo,
         fetchMovie,
+        recommendations,
     } = props;
 
     const {id} = useParams();
@@ -69,6 +70,25 @@ export function MoviePage(props) {
                 </div>
             </div>
             <div className={cn.movieTrailer}>{videosJSX}</div>
+            <div className={cn.recommendations}>
+                <div className={cn.recommendationsHeader}>
+                    <strong>Recommendations</strong>
+                </div>
+                <div className={cn.recommendedFilmsBar}>
+                    {recommendations.map((item) => {
+                        return (
+                            <div className={cn.recommendedFilm}>
+                                <img
+                                    className={cn.recommendedFilmPoster}
+                                    src={item.posterPath}
+                                    alt=""
+                                />
+                                <p className={cn.recommendedFilmTitle}>{item.title}</p>
+                            </div>
+                        );
+                    })}
+                </div>
+            </div>
         </div>
     );
 }

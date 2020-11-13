@@ -24,6 +24,7 @@ const mapStateToProps = (state) => {
         overview: selectMovieOverview(state),
         releaseDate: selectMovieReleaseDate(state),
         youtubeVideo: selectFirstYouTubeVideo(state),
+        recommendations: [],
     };
 };
 
