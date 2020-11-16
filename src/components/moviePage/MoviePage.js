@@ -19,14 +19,19 @@ export function MoviePage(props) {
         youtubeVideo,
         fetchMovie,
         recommendations,
+        cast,
+        isLoaded,
     } = props;
-
     const {id} = useParams();
 
     React.useEffect(() => {
         fetchMovie(id);
         window.scrollTo(0, 0);
     }, [fetchMovie, id]);
+
+    if (!isLoaded) {
+        return null;
+    }
 
     const videosJSX = youtubeVideo ? (
         <iframe
@@ -70,6 +75,34 @@ export function MoviePage(props) {
                 </div>
             </div>
             <div className={cn.movieTrailer}>{videosJSX}</div>
+            <div className={cn.cast}>
+                <div className={cn.castHeader}>
+                    <strong>Cast</strong>
+                </div>
+                <div className={cn.castBar}>
+                    {cast.map((item, i) => {
+                        return (
+                            <Link
+                                to={`/movie/${item.id}`}
+                                key={`${item.id}_${i}`}
+                                className={cn.link}
+                            >
+                                <div className={cn.castActor}>
+                                    {item.actorPhoto && (
+                                        <img
+                                            className={cn.castPoster}
+                                            src={item.actorPhoto}
+                                            alt=""
+                                        />
+                                    )}
+                                    <p className={cn.castActorName}>{item.name}</p>
+                                    <p className={cn.castCharacterName}>{item.character}</p>
+                                </div>
+                            </Link>
+                        );
+                    })}
+                </div>
+            </div>
             <div className={cn.recommendations}>
                 <div className={cn.recommendationsHeader}>
                     <strong>Recommendations</strong>

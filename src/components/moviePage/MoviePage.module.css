@@ -60,7 +60,7 @@
     margin: 20px;
 }
 
-.recommendations {
+.recommendations, .cast {
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -72,31 +72,31 @@
     padding-left: 50px;
 }
 
-.recommendationsHeader {
+.recommendationsHeader, .castHeader {
     color: white;
     font-size: 28px;
     margin-bottom: 20px;
 }
 
-.recommendedFilmsBar {
+.recommendedFilmsBar, .castBar {
     display: flex;
     flex-direction: row;
     width: 100%;
     overflow-x: scroll;
 }
 
-.recommendedFilm {
+.recommendedFilm, .castActor {
     display: flex;
     flex-direction: column;
     margin-right: 40px;
 }
 
-.recommendedFilmPoster {
+.recommendedFilmPoster, .castPoster {
     height: 225px;
     width: 150px;
 }
 
-.recommendedFilmTitle {
+.recommendedFilmTitle, .castActorName, .castCharacterName {
     font-size: 16px;
     width: 150px;
 }

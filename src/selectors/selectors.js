@@ -65,6 +65,23 @@ export function selectRecommendations(state) {
     });
 }
 
+export function selectActors(state) {
+    return state.movie.cast.map((item) => {
+        return {
+            name: item.name,
+            character: item.character,
+            id: item.id,
+            actorPhoto: item.profile_path
+                ? `https://image.tmdb.org/t/p/w500${item.profile_path}`
+                : null,
+        };
+    });
+}
+
+export function selectMovieIsLoaded(state) {
+    return state.movie.isLoaded;
+}
+
 export function selectFavourites(state) {
     return state.favourites.favourites;
 }
