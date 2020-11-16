@@ -11,7 +11,7 @@ export function MovieCatalog(props) {
         }
     }, [onInit]);
 
-    const moviesJsx = movies.map((movie) => <MovieConnected {...movie} />);
+    const moviesJsx = movies.map((movie) => <MovieConnected key={movie.id} {...movie} />);
 
     return (
         <div className={cn.movieCatalog}>

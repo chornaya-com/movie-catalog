@@ -1,4 +1,4 @@
-import {createStore, combineReducers, applyMiddleware} from 'redux';
+import {createStore, combineReducers, applyMiddleware, compose} from 'redux';
 import thunk from 'redux-thunk';
 import {movieListReducer} from './movieList/reducer';
 import {favouritesReducer} from './favourites/reducers';
@@ -12,4 +12,7 @@ const reducers = {
 
 const rootReducer = combineReducers(reducers);
 
-export const store = createStore(rootReducer, applyMiddleware(thunk));
+const composeEnhancers =
+    process.env.NODE_ENV === 'development' ? window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ : compose;
+
+export const store = createStore(rootReducer, {}, composeEnhancers(applyMiddleware(thunk)));
