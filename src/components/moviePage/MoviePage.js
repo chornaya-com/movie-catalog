@@ -1,6 +1,8 @@
 import React from 'react';
 import * as cn from '../moviePage/MoviePage.module.css';
-import {Link, useParams} from 'react-router-dom';
+import {useParams} from 'react-router-dom';
+import {RecommendationsConnected} from '../recommendations/Recommendations.connected';
+import {CastConnected} from '../cast/Cast.connected';
 
 export function joinNames(array) {
     return array.map((item) => item.name).join(', ');
@@ -18,8 +20,6 @@ export function MoviePage(props) {
         releaseDate,
         youtubeVideo,
         fetchMovie,
-        recommendations,
-        cast,
         isLoaded,
     } = props;
     const {id} = useParams();
@@ -75,55 +75,8 @@ export function MoviePage(props) {
                 </div>
             </div>
             <div className={cn.movieTrailer}>{videosJSX}</div>
-            <div className={cn.cast}>
-                <div className={cn.castHeader}>
-                    <strong>Cast</strong>
-                </div>
-                <div className={cn.castBar}>
-                    {cast.map((item, i) => {
-                        return (
-                            <Link
-                                to={`/movie/${item.id}`}
-                                key={`${item.id}_${i}`}
-                                className={cn.link}
-                            >
-                                <div className={cn.castActor}>
-                                    {item.actorPhoto && (
-                                        <img
-                                            className={cn.castPoster}
-                                            src={item.actorPhoto}
-                                            alt=""
-                                        />
-                                    )}
-                                    <p className={cn.castActorName}>{item.name}</p>
-                                    <p className={cn.castCharacterName}>{item.character}</p>
-                                </div>
-                            </Link>
-                        );
-                    })}
-                </div>
-            </div>
-            <div className={cn.recommendations}>
-                <div className={cn.recommendationsHeader}>
-                    <strong>Recommendations</strong>
-                </div>
-                <div className={cn.recommendedFilmsBar}>
-                    {recommendations.map((item) => {
-                        return (
-                            <Link to={`/movie/${item.id}`} key={item.id} className={cn.link}>
-                                <div className={cn.recommendedFilm}>
-                                    <img
-                                        className={cn.recommendedFilmPoster}
-                                        src={item.recommendationPoster}
-                                        alt=""
-                                    />
-                                    <p className={cn.recommendedFilmTitle}>{item.title}</p>
-                                </div>
-                            </Link>
-                        );
-                    })}
-                </div>
-            </div>
+            <CastConnected />
+            <RecommendationsConnected />
         </div>
     );
 }
