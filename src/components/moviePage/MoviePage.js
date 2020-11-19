@@ -1,6 +1,8 @@
 import React from 'react';
 import * as cn from '../moviePage/MoviePage.module.css';
-import {Link, useParams} from 'react-router-dom';
+import {useParams} from 'react-router-dom';
+import {RecommendationsConnected} from '../recommendations/Recommendations.connected';
+import {CastConnected} from '../cast/Cast.connected';
 
 export function joinNames(array) {
     return array.map((item) => item.name).join(', ');
@@ -18,15 +20,18 @@ export function MoviePage(props) {
         releaseDate,
         youtubeVideo,
         fetchMovie,
-        recommendations,
+        isLoaded,
     } = props;
-
     const {id} = useParams();
 
     React.useEffect(() => {
         fetchMovie(id);
         window.scrollTo(0, 0);
     }, [fetchMovie, id]);
+
+    if (!isLoaded) {
+        return null;
+    }
 
     const videosJSX = youtubeVideo ? (
         <iframe
@@ -70,27 +75,8 @@ export function MoviePage(props) {
                 </div>
             </div>
             <div className={cn.movieTrailer}>{videosJSX}</div>
-            <div className={cn.recommendations}>
-                <div className={cn.recommendationsHeader}>
-                    <strong>Recommendations</strong>
-                </div>
-                <div className={cn.recommendedFilmsBar}>
-                    {recommendations.map((item) => {
-                        return (
-                            <Link to={`/movie/${item.id}`} key={item.id} className={cn.link}>
-                                <div className={cn.recommendedFilm}>
-                                    <img
-                                        className={cn.recommendedFilmPoster}
-                                        src={item.recommendationPoster}
-                                        alt=""
-                                    />
-                                    <p className={cn.recommendedFilmTitle}>{item.title}</p>
-                                </div>
-                            </Link>
-                        );
-                    })}
-                </div>
-            </div>
+            <CastConnected />
+            <RecommendationsConnected />
         </div>
     );
 }
