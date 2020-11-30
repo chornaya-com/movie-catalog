@@ -16,6 +16,13 @@
     margin-bottom: 20px;
 }
 
+.castTitle {
+    background: none;
+    font-family: 'Roboto', sans-serif;
+    font-weight: 600;
+    font-size: 30px;
+    color: white;
+}
 .castBar {
     display: flex;
     flex-direction: row;
@@ -37,4 +44,24 @@
 .castActorName, .castCharacterName {
     font-size: 16px;
     width: 150px;
+}
+
+@media (max-width: 920px) {
+    .castTitle {
+        font-size: 24px;
+    }
+
+    .castPoster {
+        height: 180px;
+        width: 120px;
+    }
+
+    .castActor {
+        margin-right: 20px;
+    }
+
+    .castActorName, .castCharacterName {
+        font-size: 14px;
+        width: 120px;
+    }
 }

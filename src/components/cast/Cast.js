@@ -6,7 +6,7 @@ export function Cast(props) {
     return (
         <div className={cn.cast}>
             <div className={cn.castHeader}>
-                <strong>Cast</strong>
+                <div className={cn.castTitle}>Cast</div>
             </div>
             <div className={cn.castBar}>
                 {cast.map((item) => {
