@@ -23,6 +23,14 @@
     overflow-x: scroll;
 }
 
+.recommendationsTitle {
+    background: none;
+    font-family: 'Roboto', sans-serif;
+    font-weight: 600;
+    font-size: 30px;
+    color: white;
+}
+
 .recommendedFilm {
     display: flex;
     flex-direction: column;
@@ -42,4 +50,20 @@
 .link {
     text-decoration: none;
     color: #ffffff;
+}
+
+@media (max-width: 920px) {
+    .recommendationsTitle {
+        font-size: 24px;
+    }
+
+    .recommendedFilmPoster {
+        height: 180px;
+        width: 120px;
+    }
+
+    .recommendedFilmTitle {
+        font-size: 14px;
+        width: 120px;
+    }
 }

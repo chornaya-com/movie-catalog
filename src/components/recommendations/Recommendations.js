@@ -7,7 +7,7 @@ export function Recommendations(props) {
     return (
         <div className={cn.recommendations}>
             <div className={cn.recommendationsHeader}>
-                <strong>Recommendations</strong>
+                <div className={cn.recommendationsTitle}>Recommendations</div>
             </div>
             <div className={cn.recommendedFilmsBar}>
                 {recommendations.map((item) => {

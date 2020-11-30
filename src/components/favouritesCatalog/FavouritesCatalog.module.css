@@ -1,0 +1,21 @@
+.favouritesCatalog {
+    background: #032a4b;
+    min-height: 100%;
+    padding-top: 40px;
+    padding-bottom: 30px;
+    box-sizing: border-box;
+}
+
+.favouritesCatalogRow {
+    margin-top: 20px;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+}
+
+@media (max-width: 740px) {
+    .favouritesCatalogRow {
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
+    }
+}

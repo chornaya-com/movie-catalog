@@ -6,7 +6,7 @@ import {Provider} from 'react-redux';
 import {store} from './redux/store';
 import {MovieCatalogConnected} from './components/movieCatalog/MovieCatalog.connected';
 import {HeaderConnected} from './components/header/Header.connected';
-import {FavouritesMovieCatalogConnected} from './components/movieCatalog/FavouritesMovieCatalog.connected';
+import {FavouritesMovieCatalogConnected} from './components/favouritesCatalog/FavouritesMovieCatalog.connected';
 import {MoviePageConnected} from './components/moviePage/MoviePage.connected';
 
 export function App() {
