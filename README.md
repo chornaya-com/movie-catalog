@@ -15,6 +15,7 @@ Movie Catalog Project. Implemented with React, state management based on Redux a
 - [x] adaptive layout for mobile devices
 - [x] TMDb api for movie list
 - [x] state management based on Redux
+- [x] local storage
 
 ## How To
 ### Install Dependencies
