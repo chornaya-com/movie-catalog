@@ -57,7 +57,7 @@
 
 @media (max-width: 740px) {
     .catalogBanner, .catalogBackground {
-        height: 200px;
+        height: 120px;
     }
 
     .catalogTitle {

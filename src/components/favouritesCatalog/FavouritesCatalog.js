@@ -15,7 +15,11 @@ export function FavouritesCatalog(props) {
 
     return (
         <div className={cn.favouritesCatalog}>
-            <div className={cn.favouritesCatalogRow}>{moviesJsx}</div>
+            {moviesJsx.length ? (
+                <div className={cn.favouritesCatalogRow}>{moviesJsx}</div>
+            ) : (
+                <div className={cn.favouritesCatalogMessage}>You haven't added movies yet.</div>
+            )}
         </div>
     );
 }
