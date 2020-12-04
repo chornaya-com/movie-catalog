@@ -65,3 +65,30 @@
         width: 120px;
     }
 }
+@media (max-width: 500px) {
+    .cast{
+        padding: 0 10px;
+        margin-bottom: 20px;
+    }
+    .castHeader {
+        margin-bottom: 10px;
+    }
+    .castTitle {
+        font-size:18px;
+    }
+
+    .castPoster {
+        height: 105px;
+        width: 70px;
+    }
+
+    .castActor {
+        margin-right: 5px;
+
+    }
+
+    .castActorName, .castCharacterName {
+        font-size: 10px;
+        width: 70px;
+    }
+}

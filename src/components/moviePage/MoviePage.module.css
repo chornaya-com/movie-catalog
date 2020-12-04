@@ -66,6 +66,7 @@
         height: 240px;
         width: 160px;
     }
+
     .movieTrailer {
         width: 540px;
         height: 304px;
@@ -83,5 +84,31 @@
 
     .movieOverview, .movieRating, .otherDetails {
         font-size: 16px;
+    }
+}
+
+@media (max-width: 500px) {
+    .imageMoviePage {
+        margin: 5px;
+        height: 105px;
+        width: 70px;
+    }
+
+    .movieTrailer {
+        width: 320px;
+        height: 180px;
+    }
+
+    .movieInfo {
+        width: 260px;
+    }
+
+    .movieTitle {
+        font-size: 14px;
+    }
+
+    .movieOverview, .movieRating, .otherDetails {
+        font-size: 12px;
+        margin-top: 5px;
     }
 }

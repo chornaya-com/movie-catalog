@@ -67,3 +67,31 @@
         width: 120px;
     }
 }
+
+@media (max-width: 500px) {
+    .recommendations{
+        padding: 0 10px;
+        margin-bottom: 20px;
+    }
+
+    .recommendationsHeader{
+        margin-bottom: 10px;
+    }
+    .recommendationsTitle {
+        font-size: 18px;
+    }
+
+    .recommendedFilmPoster {
+        height: 105px;
+        width: 70px;
+    }
+
+    .recommendedFilm {
+        margin-right: 5px;
+    }
+
+    .recommendedFilmTitle {
+        font-size: 10px;
+        width: 70px;
+    }
+}
